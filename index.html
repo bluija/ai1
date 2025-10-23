@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI assisted decision-making</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script defer src="firebaseconfig.js"></script>
+
+    <script type="module" src="firebasepsych.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+<div class="loading rectangle">
+    <h1>Loading data...</h1>
+</div>
+<div class="consent rectangle hidden">
+    <h1>Consent</h1>
+    <div class="paragraph">
+        <h2>AI-Assisted Decision-Making</h2>
+        <section>
+            <h3>Researcher Information</h3>
+            <p><strong>Researcher:</strong> ZhaoBin Li<br> <strong>Department:</strong> Cognitive Sciences<br> <strong>Email:</strong>
+                <a href="mailto:zhaobin.li@uci.edu">zhaobin.li@uci.edu</a></p>
+        </section>
+        <section>
+            <h3>Study Overview</h3>
+            <p>Please read the information below and ask questions about anything that you do not understand. A
+                researcher listed above will be available to answer your questions.</p>
+            <p>You are being asked to participate in a research study. Participation in this study is voluntary. Please
+                use the Chrome browser to run the experiment.</p>
+            <p> We would like you to complete a survey to learn more about the way humans use artificial intelligence
+                (AI) to make decisions. The survey will last about 30 minutes. </p>
+            <p> There are no direct benefits from participation in the study. However, this study may help us to design
+                better AI agents. </p>
+            <p> This research is for residents of the United States over the age of 18; if you are not a resident of the
+                United States and/or under the age of 18, please do not complete this survey. </p>
+            <p> You will receive $6 for your participation in this study. To get compensated, you have to be redirected
+                back to Prolific. </p>
+        </section>
+        <section>
+            <h3>Data Security & Future Research Use</h3>
+            <p> All research data collected will be stored securely and confidentially on password-protected online and
+                local storage. </p>
+            <p><strong>Future Research Use:</strong> Researchers will use your information to conduct this study. Once
+                the study is done using your information, we may share them with other researchers so they can use them
+                for other studies in the future. We will not share your name or any other private identifiable
+                information that would let the researchers know who you are. We will not ask you for additional
+                permission to share this de-identified information. </p>
+        </section>
+        <section>
+            <h3>Questions & Contact Information</h3>
+            <p> If you have any comments, concerns, or questions regarding this study, please contact the researchers
+                listed at the top of this form. </p>
+            <p> If you have questions or concerns about your rights as a research participant, you can contact the UCI
+                Institutional Review Board by: </p>
+            <ul>
+                <li>Phone: <a href="tel:9498248170">(949) 824-8170</a></li>
+                <li>Email: <a href="mailto:IRB@research.uci.edu">IRB@research.uci.edu</a></li>
+                <li>Mail: University of California, Irvine, Office of Research, Irvine, CA 92697-7600</li>
+            </ul>
+        </section>
+        <section>
+            <h3>What is an IRB?</h3>
+            <p> An Institutional Review Board (IRB) is a committee made up of scientists and non-scientists. The IRB’s
+                role is to protect the rights and welfare of human subjects involved in research. The IRB also assures
+                that the research complies with applicable regulations, laws, and institutional policies. </p>
+        </section>
+        <section>
+            <p> If you want to participate in this study, click the Agree button to start the survey. </p>
+        </section>
+    </div>
+    <label> <input type="checkbox" class="consentCheckbox"/> Agree </label> <br>
+    <button class="startButton" disabled>Start</button>
+</div>
+
+<!--Experiment-->
+<div class="experiment hidden">
+    <nav class="progressDisplay">
+        <span class="trial"></span>
+        <h1 class="question">Which color has the most dots?</h1>
+        <span class="score"></span>
+    </nav>
+    <div class="rectangle">
+        <div class="canvasDisplay">
+            <canvas id="canvas" width="400px" height="600px"></canvas>
+        </div>
+        <div class="questionDisplay hidden">
+            <form class="aiForm">
+                <fieldset class="aiField" disabled>
+                    <legend>AI's Answer</legend>
+                    <div class="questionClr">
+                        <div class="buttonClr">
+                            <input type="radio" name="aiClr" value="blue" id="aiBlue">
+                            <label for="aiBlue" class="blue">Blue</label>
+                            <input type="radio" name="aiClr" value="yellow" id="aiYellow">
+                            <label for="aiYellow" class="yellow">Yellow</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="questionCnf">
+                        <div class="promptCnf">Confidence (%)</div>
+                        <div class="buttonCnf">
+                            <input type="radio" name="aiCnf" value="0" id="ai0">
+                            <label for="ai0">0</label>
+                            <input type="radio" name="aiCnf" value="10" id="ai10">
+                            <label for="ai10">10</label>
+                            <input type="radio" name="aiCnf" value="20" id="ai20">
+                            <label for="ai20">20</label>
+                            <input type="radio" name="aiCnf" value="30" id="ai30">
+                            <label for="ai30">30</label>
+                            <input type="radio" name="aiCnf" value="40" id="ai40">
+                            <label for="ai40">40</label>
+                            <input type="radio" name="aiCnf" value="50" id="ai50">
+                            <label for="ai50">50</label>
+                            <input type="radio" name="aiCnf" value="60" id="ai60">
+                            <label for="ai60">60</label>
+                            <input type="radio" name="aiCnf" value="70" id="ai70">
+                            <label for="ai70">70</label>
+                            <input type="radio" name="aiCnf" value="80" id="ai80">
+                            <label for="ai80">80</label>
+                            <input type="radio" name="aiCnf" value="90" id="ai90">
+                            <label for="ai90">90</label>
+                            <input type="radio" name="aiCnf" value="100" id="ai100">
+                            <label for="ai100">100</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <br>
+            <form class="afterForm hidden">
+                <fieldset class="afterField">
+                    <legend>Judge the AI</legend>
+                    <div class="questionAns">
+                        <div class="buttonAns">
+                            <input type="radio" name="afterAns" value="yes" id="afterYes" required>
+                            <label for="afterYes" class="yes"><h3>AI is correct</h3></label>
+                            <input type="radio" name="afterAns" value="no" id="afterNo">
+                            <label for="afterNo" class="no"><h3>AI is wrong</h3></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="afterSubmit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Complete-->
+<div class="complete rectangle hidden">
+    <div class="commentDisplay">
+        <label for="commentField">Give your comments:</label>
+        <textarea id="commentField" name="commentField" rows="5" cols="50"
+                  placeholder="Give your comments..."></textarea>
+        <br>
+        <button class="commentSubmit">Submit</button>
+    </div>
+    <div class="redirectDisplay hidden">
+        <h3>Thank you for your participation!</h3>
+        <p>You will be redirected to Prolific.</p>
+        <p>If you are not redirected automatically, please click the button below.</p>
+        <button class="redirectButton">Redirect to Prolific</button>
+    </div>
+</div>
+
+</body>
+</html>

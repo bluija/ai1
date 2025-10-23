@@ -1,0 +1,133 @@
+.rectangle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.paragraph {
+    max-width: 80%;
+    text-align: left;
+}
+
+.progressDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.trial, .score {
+    font-size: large;
+}
+
+.startButton, .afterSubmit, .commentSubmit, .redirectButton {
+    padding: 10px;
+}
+
+.canvasDisplay {
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide-in {
+    animation-name: slide-in;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(-200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 30px;
+}
+
+input[type="radio"] + label {
+    color: black;
+    display: inline-block;
+    border-radius: 10%;
+}
+
+input[type="radio"]:enabled + label {
+    cursor: pointer;
+}
+
+input[type="radio"]:hover:enabled + label, input[type="radio"]:checked + label {
+    color: white;
+}
+
+.questionClr input[type="radio"] + label {
+    width: 50px;
+    border: 5px solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+.questionAns input[type="radio"] + label {
+    width: 100px;
+    border: 10px solid #6c757d;
+    padding: 10px;
+    margin: 10px;
+}
+
+.questionAns input[type="radio"]:hover:enabled + label, .questionAns input[type="radio"]:checked + label {
+    background-color: #6c757d;
+}
+
+.questionCnf input[type="radio"] + label {
+    width: 25px;
+    border: 2.5px solid black;
+    padding: 2.5px;
+    margin: 2.5px;
+}
+
+.questionCnf input[type="radio"]:hover:enabled + label, .questionCnf input[type="radio"]:checked + label {
+    background-color: black;
+}
+
+
+input[type="radio"] + label.blue {
+    border-color: #1E88E5;
+}
+
+input[type="radio"]:hover:enabled + label.blue, input[type="radio"]:checked + label.blue {
+    background-color: #1E88E5;
+}
+
+
+input[type="radio"] + label.yellow {
+    border-color: #FFC107;
+}
+
+input[type="radio"]:hover:enabled + label.yellow, input[type="radio"]:checked + label.yellow {
+    background-color: #FFC107;
+}
+
+textarea {
+    display: block;
+    overflow: auto;
+}
+
+.introjs-skipbutton {
+    display: none !important;
+}
+
+.introjs-prevbutton {
+    display: none !important;
+}
+
+.hidden {
+    display: none;
+}
