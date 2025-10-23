@@ -22,7 +22,7 @@ const minDots = 512;
 const maxDots = 512;
 
 const dotSize = 8;
-const numTrial = 5;
+const numTrial = 32;
 
 // https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40
 const clrs = {"Blue": "#1E88E5", "Yellow": "#FFC107"}
@@ -152,7 +152,7 @@ const setData = () => {
     }
 
     trialData.coords = coords;
-    console.log(trialData);
+    // console.log(trialData);
 }
 
 const resetTrial = () => {
